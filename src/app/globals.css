@@ -150,6 +150,8 @@
     transition: width 0.4s var(--ease-bounce), height 0.4s var(--ease-bounce), margin 0.4s var(--ease-bounce), background 0.3s;
   }
   .cursor-label { color: var(--color-ink); font-family: var(--font-hand); font-weight: 700; font-size: 26px; opacity: 0; transition: opacity 0.2s; }
+  /* Invert the plain dot over lime sections so it stays visible */
+  .cursor.is-dark .cursor-dot { background: var(--color-ink); }
   .cursor.is-link .cursor-dot { width: 48px; height: 48px; margin: -24px 0 0 -24px; background: rgba(255, 91, 167, 0.55); }
   .cursor.is-view .cursor-dot { width: 104px; height: 104px; margin: -52px 0 0 -52px; background: var(--color-lime); }
   .cursor.is-view .cursor-label { opacity: 1; }

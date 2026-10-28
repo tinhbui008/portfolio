@@ -204,13 +204,14 @@ export function initMotion(cursor: HTMLElement): () => void {
       cursor.classList.toggle("is-view", !!view);
       if (view) label.textContent = view.dataset.cursor ?? "";
       cursor.classList.toggle("is-link", !view && !!el.closest("a, button, label, input, select, textarea"));
+      cursor.classList.toggle("is-dark", !!el.closest("[data-cursor-dark]"));
     };
 
     const onLeave = () => {
       if (mag) gsap.to(mag, { x: 0, y: 0, duration: 0.6 });
       tilt?.querySelector<HTMLElement>(".tilt")?.style.removeProperty("transform");
       mag = tilt = null;
-      cursor.classList.remove("is-view", "is-link");
+      cursor.classList.remove("is-view", "is-link", "is-dark");
     };
 
     addEventListener("mousemove", onMove, { passive: true });

@@ -11,6 +11,7 @@ export function Contact() {
   return (
     <section
       id="contact"
+      data-cursor-dark
       className="relative overflow-hidden rounded-t-[48px] bg-lime pb-10 pt-[120px] text-ink max-md:rounded-t-[28px]"
     >
       <div className="float spin" data-speed="0.15" style={{ left: "4%", top: 60 }}>
