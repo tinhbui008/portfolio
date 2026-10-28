@@ -35,7 +35,7 @@ export function ContactForm({ types, budgets }: { types: string[]; budgets: stri
     <form
       onSubmit={onSubmit}
       aria-label="Form liên hệ"
-      className="rv col-span-7 col-start-6 grid grid-cols-2 gap-[18px] rounded-[36px] bg-ink p-9 text-cream max-md:col-span-1 max-md:col-start-1 max-md:grid-cols-1 max-md:p-[22px]"
+      className="rv col-span-7 col-start-6 grid grid-cols-2 gap-[18px] rounded-[32px] bg-ink p-9 text-cream shadow-[10px_10px_0_var(--color-pink)] max-md:col-span-1 max-md:col-start-1 max-md:grid-cols-1 max-md:p-[22px]"
     >
       {/* Honeypot: bots fill it, humans never see it */}
       <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />

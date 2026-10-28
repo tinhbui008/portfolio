@@ -29,34 +29,49 @@ export function Services() {
   return (
     <section id="services" className="sec wrap !pt-10">
       <div className="sec-head">
-        <h2 className="disp h2 rv">
-          Services <span className="hand">what I do</span>
-        </h2>
+        <div>
+          <p className="kick rv">what I do ↓</p>
+          <h2 className="disp h2 rv">
+            Services <span className="ser">&amp; craft</span>
+          </h2>
+        </div>
       </div>
-      <div className="grid grid-cols-4 gap-4 max-[1100px]:grid-cols-2 max-md:grid-cols-1">
+      <div className="grid grid-cols-4 gap-[18px] max-[1100px]:grid-cols-2 max-md:grid-cols-1">
         {services.map((s, i) => (
-          <a
-            key={s.title}
-            href="#contact"
-            className={`rv group relative flex min-h-[420px] flex-col justify-between gap-6 overflow-hidden rounded-[32px] p-[30px] text-ink no-underline transition-transform duration-500 [transition-timing-function:var(--ease-bounce)] max-md:min-h-[280px] ${
-              i % 2 ? "hover:-translate-y-2.5 hover:rotate-[1.5deg]" : "hover:-translate-y-2.5 hover:-rotate-[1.5deg]"
-            }`}
-            style={{ background: swatch(s.color) }}
-          >
-            <svg
-              viewBox="0 0 84 84"
-              aria-hidden="true"
-              className="size-[84px] transition-transform duration-[800ms] [transition-timing-function:var(--ease-bounce)] group-hover:rotate-90 group-hover:scale-110"
+          <div key={s.title} className="rv">
+            <a
+              href="#contact"
+              className={`group relative flex h-full min-h-[460px] flex-col justify-between gap-6 overflow-hidden rounded-[28px] p-[30px] text-ink no-underline transition-transform duration-[550ms] [transition-timing-function:var(--ease-bounce)] max-md:min-h-[300px] ${
+                i % 2 ? "hover:-translate-y-3 hover:rotate-2" : "hover:-translate-y-3 hover:-rotate-2"
+              }`}
+              style={{ background: swatch(s.color) }}
             >
-              {icons[s.icon]}
-            </svg>
-            <div>
-              <h3 className="m-0 text-[46px] font-extrabold uppercase leading-[.9] tracking-[-.02em] [font-variation-settings:'wdth'_75,'opsz'_96]">
-                {s.title}
-              </h3>
-              <p className="mb-0 mt-3.5 text-base font-medium leading-normal">{s.body}</p>
-            </div>
-          </a>
+              {/* Halftone corner */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(rgba(14,14,19,.22)_32%,transparent_35%)] bg-[length:12px_12px] [mask-image:linear-gradient(200deg,#000,transparent_55%)]"
+              />
+              <span
+                aria-hidden="true"
+                className="ser absolute right-[18px] top-1.5 text-[150px] leading-none text-transparent opacity-55 [-webkit-text-stroke:2px_#0E0E13]"
+              >
+                {i + 1}
+              </span>
+              <svg
+                viewBox="0 0 84 84"
+                aria-hidden="true"
+                className="relative size-[84px] transition-transform duration-[800ms] [transition-timing-function:var(--ease-bounce)] group-hover:rotate-90 group-hover:scale-110"
+              >
+                {icons[s.icon]}
+              </svg>
+              <div className="relative">
+                <h3 className="m-0 text-[46px] font-extrabold uppercase leading-[.9] tracking-[-.02em] [font-variation-settings:'wdth'_75,'opsz'_96]">
+                  {s.title}
+                </h3>
+                <p className="mb-0 mt-3.5 text-base font-medium leading-normal">{s.body}</p>
+              </div>
+            </a>
+          </div>
         ))}
       </div>
     </section>

@@ -17,6 +17,8 @@ gsap.registerPlugin(ScrollTrigger);
  *   [data-tilt]       3D tilt on hover
  *   [data-cursor]     custom cursor label
  *   [data-velocity]   marquee speeds up with scroll velocity
+ *   [data-scatter]    hero name letters drift apart on scroll
+ *   .dr               doodle stroke draws in on scroll
  * Everything is skipped under prefers-reduced-motion; heavy pointer effects are desktop-only.
  */
 export function initMotion(cursor: HTMLElement): () => void {
@@ -107,6 +109,25 @@ export function initMotion(cursor: HTMLElement): () => void {
         ease: "power3.out",
         scrollTrigger: { trigger: el, start: "top 90%", once: true },
         onUpdate: () => (el.textContent = String(Math.round(obj.v))),
+      });
+    });
+
+    /* ── Doodles draw themselves when scrolled into view (CSS transition on .in) ── */
+    gsap.utils.toArray<SVGElement>(".dr:not(.auto)").forEach((el) => {
+      ScrollTrigger.create({ trigger: el, start: "top 92%", once: true, onEnter: () => el.classList.add("in") });
+    });
+
+    /* ── Hero name letters scatter apart over the first 1400px of scroll (desktop) ── */
+    mm.add("(min-width: 768px)", () => {
+      gsap.utils.toArray<HTMLElement>("[data-scatter]").forEach((el) => {
+        const k = Number(el.dataset.scatter) || 0;
+        gsap.to(el, {
+          x: 1400 * k * 0.6,
+          y: -1400 * Math.abs(k) * 1.4,
+          rotate: 1400 * k * 0.12,
+          ease: "none",
+          scrollTrigger: { start: 0, end: 1400, scrub: true },
+        });
       });
     });
 

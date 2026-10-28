@@ -7,32 +7,33 @@
     { "id": "packaging", "label": "Packaging" }
   ],
   "works": [
-    { "id": "p1", "title": "Project 01", "category": "branding", "size": "big", "art": "arch", "bg": "#4D6BFF", "fg": "#FF5BA7" },
-    { "id": "p2", "title": "Project 02", "category": "poster", "size": "tall", "art": "letter", "glyph": "K", "bg": "#C8FF2E", "fg": "#0E0E13" },
-    { "id": "p3", "title": "Project 03", "category": "illustration", "size": "sq", "art": "blob", "bg": "#FFD23F", "fg": "#FF7A1A" },
-    { "id": "p4", "title": "Project 04", "category": "packaging", "size": "sq", "art": "grid", "bg": "#FF5BA7", "fg": "#0E0E13" },
-    { "id": "p5", "title": "Project 05", "category": "branding", "size": "wide", "art": "sun", "bg": "#FF7A1A", "fg": "#FFD23F" },
-    { "id": "p6", "title": "Project 06", "category": "poster", "size": "sq", "art": "stripes", "bg": "#8A5CFF", "fg": "#C8FF2E" },
-    { "id": "p7", "title": "Project 07", "category": "illustration", "size": "tall", "art": "flower", "bg": "#1A1A22", "fg": "#FF5BA7" },
-    { "id": "p8", "title": "Project 08", "category": "packaging", "size": "wide", "art": "letter", "glyph": "Ag", "bg": "#FFD23F", "fg": "#0E0E13" },
-    { "id": "p9", "title": "Project 09", "category": "branding", "size": "sq", "art": "dots", "bg": "#C8FF2E", "fg": "#4D6BFF" }
+    { "id": "p1", "title": "Project 01", "category": "branding", "size": "big", "art": "arch", "bg": "#4D6BFF", "fg": "#FF5BA7", "c2": "#FFD23F", "rot": -1, "tape": "yellow" },
+    { "id": "p2", "title": "Project 02", "category": "poster", "size": "tall", "art": "letter", "glyph": "K", "bg": "#C8FF2E", "fg": "#0E0E13", "rot": 1.5, "tape": "pink" },
+    { "id": "p3", "title": "Project 03", "category": "illustration", "size": "sq", "art": "riso", "bg": "#F4F1EA", "fg": "#FF5BA7", "c2": "#4D6BFF", "rot": -2, "tape": "lime" },
+    { "id": "p4", "title": "Project 04", "category": "packaging", "size": "sq", "art": "halftone", "bg": "#FF5BA7", "fg": "#0E0E13", "c2": "#FFD23F", "rot": 2, "tape": "yellow" },
+    { "id": "p5", "title": "Project 05", "category": "branding", "size": "wide", "art": "sun", "bg": "#FF7A1A", "fg": "#FFD23F", "rot": 1, "tape": "pink" },
+    { "id": "p6", "title": "Project 06", "category": "poster", "size": "sq", "art": "op", "bg": "#8A5CFF", "fg": "#C8FF2E", "c2": "#FF5BA7", "rot": -1.5, "tape": "lime" },
+    { "id": "p7", "title": "Project 07", "category": "illustration", "size": "tall", "art": "flower", "bg": "#1A1A22", "fg": "#FF5BA7", "c2": "#FFD23F", "rot": 2, "tape": "yellow" },
+    { "id": "p8", "title": "Project 08", "category": "packaging", "size": "wide", "art": "moon", "bg": "#FFD23F", "fg": "#4D6BFF", "rot": -1, "tape": "pink" },
+    { "id": "p9", "title": "Project 09", "category": "branding", "size": "sq", "art": "letter", "glyph": "Ag", "bg": "#4D6BFF", "fg": "#C8FF2E", "rot": 1.5, "tape": "lime" }
   ],
   "featured": [
-    { "id": "f1", "title": "Project 01", "label": "Branding", "art": "sun", "bg": "#4D6BFF", "fg": "#FFD23F", "badge": "lime", "width": 760, "height": 500 },
-    { "id": "f2", "title": "Project 02", "label": "Poster", "art": "letter", "glyph": "R", "bg": "#FF5BA7", "fg": "#0E0E13", "badge": "pink", "width": 420, "height": 580 },
-    { "id": "f3", "title": "Project 03", "label": "Packaging", "art": "flower", "bg": "#C8FF2E", "fg": "#FF7A1A", "badge": "yellow", "width": 520, "height": 520 },
-    { "id": "f4", "title": "Project 04", "label": "Illustration", "art": "stripes", "bg": "#FF7A1A", "fg": "#0E0E13", "badge": "orange", "width": 760, "height": 460 },
-    { "id": "f5", "title": "Project 05", "label": "Character", "art": "blob", "bg": "#8A5CFF", "fg": "#C8FF2E", "badge": "lime", "width": 420, "height": 580 }
+    { "id": "f1", "title": "Project 01", "label": "Branding", "art": "sun", "bg": "#4D6BFF", "fg": "#FFD23F", "pin": "pink", "rot": -1.5, "width": 740, "height": 480 },
+    { "id": "f2", "title": "Project 02", "label": "Poster", "art": "letter", "glyph": "R", "bg": "#FF5BA7", "fg": "#0E0E13", "pin": "lime", "rot": 2, "width": 400, "height": 560 },
+    { "id": "f3", "title": "Project 03", "label": "Packaging", "art": "riso", "bg": "#F4F1EA", "fg": "#FFD23F", "c2": "#FF5BA7", "pin": "yellow", "rot": -2.5, "width": 500, "height": 500 },
+    { "id": "f4", "title": "Project 04", "label": "Illustration", "art": "op", "bg": "#FF7A1A", "fg": "#0E0E13", "c2": "#C8FF2E", "pin": "blue", "rot": 1, "width": 740, "height": 440 },
+    { "id": "f5", "title": "Project 05", "label": "Character", "art": "moon", "bg": "#8A5CFF", "fg": "#C8FF2E", "pin": "orange", "rot": -2, "width": 400, "height": 560 }
   ],
   "caseStudy": {
-    "title": "Project 01",
+    "title": "Project",
+    "titleAccent": "01",
     "summary": "Nhận diện thương hiệu trọn gói cho [tên khách hàng] — từ logo, bảng màu đến bao bì và hình ảnh mạng xã hội.",
-    "hero": { "art": "arch", "bg": "#FF5BA7", "fg": "#4D6BFF" },
+    "hero": { "art": "arch", "bg": "#FF5BA7", "fg": "#4D6BFF", "c2": "#FFD23F" },
     "steps": [
-      { "title": "Bối cảnh", "body": "[Khách hàng là ai, họ gặp vấn đề gì với hình ảnh hiện tại, và mục tiêu kinh doanh của dự án.]", "color": "lime" },
-      { "title": "Ý tưởng", "body": "[Insight chính và khái niệm thị giác — vì sao chọn hình khối, màu sắc và giọng điệu này.]", "color": "pink" },
-      { "title": "Phác thảo", "body": "[Các phương án logo, lưới dựng hình, vòng phản hồi với khách hàng.]", "color": "yellow", "sketch": true },
-      { "title": "Kết quả", "body": "[Hệ thống nhận diện hoàn chỉnh và tác động đo được sau khi ra mắt.]", "color": "orange" }
+      { "title": "Bối cảnh", "body": "[Khách hàng là ai, họ gặp vấn đề gì với hình ảnh hiện tại, và mục tiêu kinh doanh của dự án.]", "color": "pink", "tape": "yellow", "rot": -2 },
+      { "title": "Ý tưởng", "body": "[Insight chính và khái niệm thị giác — vì sao chọn hình khối, màu sắc và giọng điệu này.]", "color": "blue", "tape": "pink", "rot": 1.5 },
+      { "title": "Phác thảo", "body": "[Các phương án logo, lưới dựng hình, vòng phản hồi với khách hàng.]", "color": "orange", "tape": "lime", "rot": -1, "sketch": true },
+      { "title": "Kết quả", "body": "[Hệ thống nhận diện hoàn chỉnh và tác động đo được sau khi ra mắt.]", "color": "violet", "tape": "yellow", "rot": 2 }
     ]
   }
 }

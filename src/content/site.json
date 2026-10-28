@@ -1,45 +1,134 @@
 {
   "name": "Băng Khanh",
-  "nameLines": ["BĂNG", "KHANH"],
+  "nameLines": [
+    "BĂNG",
+    "KHANH"
+  ],
   "logo": "BK✶",
   "role": "Graphic Designer 2D",
-  "availability": "Nhận dự án mới — [Quý / Năm]",
+  "availability": "Graphic Designer 2D — đang nhận dự án [Quý / Năm]",
   "positioning": {
     "before": "Tôi thiết kế nhận diện thương hiệu khiến người ta",
-    "highlight": "nhớ",
+    "highlight": "nhớ mãi",
     "after": ".",
     "sub": "Branding, illustration & posters — loud, playful, made by hand."
   },
-  "stickers": ["hi!\nthere", "2D only ✶"],
+  "stickers": [
+    "xin\nchào!",
+    "2D only ✶"
+  ],
   "marquee": {
-    "a": ["Branding", "Logo", "Illustration", "Poster", "Packaging", "Social Media", "Character Design"],
-    "b": ["Character Design", "Social Media", "Packaging", "Poster", "Illustration", "Logo", "Branding"]
-  },
-  "about": {
-    "lead": "Băng Khanh là graphic designer 2D với **[X] năm** kinh nghiệm, từng làm việc cùng [agency / khách hàng tiêu biểu]. Tôi vẽ những thương hiệu có cá tính — vui, táo bạo và khó quên.",
-    "tools": [
-      { "name": "Illustrator", "color": "orange" },
-      { "name": "Photoshop", "color": "blue" },
-      { "name": "Procreate", "color": "pink" },
-      { "name": "Figma", "color": "lime" }
+    "a": [
+      "Branding",
+      "Logo",
+      "Illustration",
+      "Poster",
+      "Packaging",
+      "Social",
+      "Character Design"
     ],
-    "stats": [
-      { "value": 6, "suffix": "", "label": "năm kinh nghiệm", "color": "lime" },
-      { "value": 120, "suffix": "+", "label": "dự án hoàn thành", "color": "pink" },
-      { "value": 48, "suffix": "+", "label": "khách hàng", "color": "yellow" }
+    "b": [
+      [
+        "Character",
+        "Social Media"
+      ],
+      [
+        "Packaging"
+      ],
+      [
+        "Poster",
+        "Illustration"
+      ]
     ]
   },
-  "clients": ["Client 01", "Client 02", "Client 03", "Client 04", "Client 05", "Client 06"],
+  "about": {
+    "lead": "**Băng Khanh** là graphic designer 2D với [X] năm kinh nghiệm, từng làm việc cùng [agency / khách hàng tiêu biểu]. Tôi vẽ những thương hiệu có cá tính — vui, táo bạo và khó quên.",
+    "tools": [
+      {
+        "name": "Illustrator",
+        "color": "orange"
+      },
+      {
+        "name": "Photoshop",
+        "color": "blue"
+      },
+      {
+        "name": "Procreate",
+        "color": "pink"
+      },
+      {
+        "name": "Figma",
+        "color": "lime"
+      }
+    ],
+    "stats": [
+      {
+        "value": 6,
+        "suffix": "",
+        "label": "năm kinh nghiệm",
+        "color": "lime"
+      },
+      {
+        "value": 120,
+        "suffix": "+",
+        "label": "dự án hoàn thành",
+        "color": "pink"
+      },
+      {
+        "value": 48,
+        "suffix": "+",
+        "label": "khách hàng",
+        "color": "yellow"
+      }
+    ],
+    "ring": "Băng Khanh ✶ Graphic Designer 2D ✶ Branding ✶ Illustration ✶ Poster ✶"
+  },
+  "clients": [
+    "Client 01",
+    "Client 02",
+    "Client 03",
+    "Client 04",
+    "Client 05",
+    "Client 06"
+  ],
   "contact": {
     "email": "[email@domain.com]",
     "note": "Phản hồi trong vòng 24 giờ. Kể cho tôi về thương hiệu của bạn — tôi sẽ gửi lại hướng đi và báo giá.",
     "socials": [
-      { "label": "Behance", "href": "https://www.behance.net/" },
-      { "label": "Dribbble", "href": "https://dribbble.com/" },
-      { "label": "Instagram", "href": "https://www.instagram.com/" }
+      {
+        "label": "Behance",
+        "href": "https://www.behance.net/"
+      },
+      {
+        "label": "Dribbble",
+        "href": "https://dribbble.com/"
+      },
+      {
+        "label": "Instagram",
+        "href": "https://www.instagram.com/"
+      }
     ],
-    "projectTypes": ["Branding & Logo", "Illustration", "Poster / Key visual", "Packaging", "Social media", "Khác"],
-    "budgets": ["< [mức 1]", "[mức 1] – [mức 2]", "[mức 2] – [mức 3]", "> [mức 3]"]
+    "projectTypes": [
+      "Branding & Logo",
+      "Illustration",
+      "Poster / Key visual",
+      "Packaging",
+      "Social media",
+      "Khác"
+    ],
+    "budgets": [
+      "< [mức 1]",
+      "[mức 1] – [mức 2]",
+      "[mức 2] – [mức 3]",
+      "> [mức 3]"
+    ],
+    "badge": "Available for freelance ✶ [Thành phố] · Remote ✶"
   },
-  "footer": "© [Năm] Băng Khanh — made with ♥ & Procreate"
+  "footer": "© [Năm] Băng Khanh — made with ♥ & Procreate",
+  "notes": [
+    "← poster series",
+    "riso vibes ✶"
+  ],
+  "heroBadge": "Xem dự án ✶ scroll down ✶ Xem dự án ✶ scroll down ✶",
+  "featuredNote": "05 tác phẩm lớn, ghim trên tường — cuộn để trượt qua từng bức."
 }

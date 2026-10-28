@@ -13,3 +13,28 @@ export function Star({ size = 64, fill = "currentColor" }: { size?: number; fill
     </svg>
   );
 }
+
+/**
+ * Spinning circular text badge. `id` must be unique on the page (textPath ref).
+ */
+export function Badge({
+  id, text, ring, ink, core, children, className = "", style,
+}: {
+  id: string; text: string; ring: string; ink: string; core: string;
+  children: React.ReactNode; className?: string; style?: React.CSSProperties;
+}) {
+  return (
+    <div className={`badge ${className}`} style={style} aria-hidden="true">
+      <svg className="ring" viewBox="0 0 200 200">
+        <defs>
+          <path id={id} d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0" />
+        </defs>
+        <circle cx="100" cy="100" r="98" fill={ring} />
+        <text fill={ink}>
+          <textPath href={`#${id}`} textLength="470">{text}</textPath>
+        </text>
+      </svg>
+      <span className="core" style={{ background: core }}>{children}</span>
+    </div>
+  );
+}
