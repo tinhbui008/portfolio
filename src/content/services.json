@@ -1,0 +1,6 @@
+[
+  { "title": "Branding & Logo", "body": "Logo, bảng màu, typography và bộ hướng dẫn thương hiệu dùng được ngay.", "color": "lime", "icon": "star" },
+  { "title": "Illustration", "body": "Minh họa 2D cho website, sách, ứng dụng và chiến dịch truyền thông.", "color": "pink", "icon": "leaf" },
+  { "title": "Poster & Key Visual", "body": "Hình ảnh chủ đạo cho sự kiện, ra mắt sản phẩm và chiến dịch theo mùa.", "color": "yellow", "icon": "poster" },
+  { "title": "Packaging & Social", "body": "Bao bì sản phẩm và bộ template mạng xã hội đồng bộ với nhận diện.", "color": "orange", "icon": "box" }
+]

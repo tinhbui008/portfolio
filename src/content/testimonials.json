@@ -1,0 +1,5 @@
+[
+  { "quote": "[Trích dẫn từ khách hàng — 1–2 câu về kết quả hợp tác và cảm nhận khi làm việc cùng bạn.]", "name": "[Tên khách hàng]", "role": "[Chức vụ] — [Công ty]", "color": "yellow", "rotate": -2 },
+  { "quote": "[Trích dẫn từ khách hàng — nêu một thay đổi cụ thể sau khi ra mắt nhận diện mới.]", "name": "[Tên khách hàng]", "role": "[Chức vụ] — [Công ty]", "color": "cream", "rotate": 1.5, "offset": true },
+  { "quote": "[Trích dẫn từ khách hàng — về quy trình, tiến độ và sự chủ động.]", "name": "[Tên khách hàng]", "role": "[Chức vụ] — [Công ty]", "color": "pink", "rotate": -1 }
+]

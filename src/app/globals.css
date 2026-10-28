@@ -1,26 +1,191 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ───────── Design tokens (Sticker Club) ─────────
+   `static` keeps every variable in the output even if no utility uses it,
+   because colours are also referenced from JSON via var(--color-*). */
+@theme static {
+  --color-ink: #0e0e13;
+  --color-card: #1a1a22;
+  --color-cream: #f4f1ea;
+  --color-mute: #a6a4ae;
+  --color-lime: #c8ff2e;
+  --color-pink: #ff5ba7;
+  --color-orange: #ff7a1a;
+  --color-blue: #4d6bff;
+  --color-yellow: #ffd23f;
+  --color-violet: #8a5cff;
+
+  --font-sans: "Bricolage Grotesque Variable", system-ui, sans-serif;
+  --font-hand: "Caveat", cursive;
+
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html { scroll-behavior: auto; }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-stopped { overflow: hidden; }
+  body {
+    margin: 0;
+    background: var(--color-ink);
+    color: var(--color-cream);
+    font-family: var(--font-sans);
+    font-variation-settings: "wdth" 100;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
   }
+  a { color: inherit; }
+  ::selection { background: var(--color-lime); color: var(--color-ink); }
+  :focus-visible { outline: 2px solid var(--color-lime); outline-offset: 3px; }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ───────── Shared component classes ───────── */
+@layer components {
+  .wrap { max-width: 1440px; margin-inline: auto; padding-inline: 48px; }
+  .hand { font-family: var(--font-hand); font-weight: 700; }
+  .disp {
+    font-weight: 800;
+    font-variation-settings: "wdth" 75, "opsz" 96;
+    letter-spacing: -0.035em;
+    line-height: 0.82;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  .h2 { font-size: clamp(76px, 12vw, 190px); }
+  .h2 .hand {
+    font-size: 0.36em; text-transform: none; letter-spacing: 0; color: var(--color-lime);
+    display: inline-block; transform: rotate(-6deg) translateY(-0.6em);
+  }
+  .sec { padding-block: 130px; position: relative; }
+  .sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 52px; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 12px; min-height: 60px; padding: 0 30px;
+    border-radius: 999px; font-weight: 700; font-size: 17px; text-decoration: none;
+    border: 2px solid transparent; cursor: pointer; font-family: inherit;
+    transition: transform 0.5s var(--ease-out-expo), background 0.3s, color 0.3s, border-color 0.3s;
+  }
+  .btn-lime { background: var(--color-lime); color: var(--color-ink); }
+  .btn-lime:hover { background: var(--color-cream); }
+  .btn-line { border-color: var(--color-cream); color: var(--color-cream); }
+  .btn-line:hover { background: var(--color-pink); border-color: var(--color-pink); color: var(--color-ink); }
+
+  /* Film grain: one small noise tile, rasterised once and repeated (cheap to scroll). */
+  .grain {
+    position: fixed; inset: 0; pointer-events: none; z-index: 90; opacity: 0.09; mix-blend-mode: screen;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+  }
+
+  /* Intro timing: everything in the hero waits for the loader on desktop.
+     Mobile skips the loader, so the hero plays immediately (better Speed Index). */
+  :root { --intro: 1.45s; }
+  @media (max-width: 767px) { :root { --intro: 0s; } }
+
+  /* Placeholder artwork (swap for real images via `image` in projects.json) */
+  .art { position: relative; overflow: hidden; width: 100%; height: 100%; background: var(--color-card); color: var(--color-cream); }
+  .art::before, .art::after { content: ""; position: absolute; }
+  .art-sun::before { width: 58%; aspect-ratio: 1; border-radius: 50%; background: currentColor; left: 21%; top: 12%; }
+  .art-sun::after { left: 0; right: 0; bottom: 0; height: 30%; background: repeating-linear-gradient(0deg, currentColor 0 6px, transparent 6px 14px); }
+  .art-grid::before { inset: 12%; background: conic-gradient(currentColor 25%, transparent 0 50%, currentColor 0 75%, transparent 0) 0 0 / 50% 50%; border-radius: 12px; }
+  .art-arch::before { left: 18%; right: 18%; top: 16%; bottom: 0; border-radius: 999px 999px 0 0; background: currentColor; }
+  .art-arch::after { left: 36%; right: 36%; top: 46%; bottom: 0; border-radius: 999px 999px 0 0; background: inherit; }
+  .art-stripes::before { inset: 0; background: repeating-linear-gradient(135deg, currentColor 0 18px, transparent 18px 40px); }
+  .art-stripes::after { width: 44%; aspect-ratio: 1; border-radius: 50%; background: inherit; left: 28%; top: 28%; box-shadow: 0 0 0 14px currentColor; }
+  .art-blob::before { width: 74%; aspect-ratio: 1; left: -12%; top: -12%; border-radius: 42% 58% 63% 37% / 45% 38% 62% 55%; background: currentColor; }
+  .art-blob::after { width: 46%; aspect-ratio: 1; right: -6%; bottom: -8%; border-radius: 50%; border: 14px solid currentColor; }
+  .art-dots::before { inset: 10%; background: radial-gradient(currentColor 30%, transparent 32%) 0 0 / 16.66% 16.66%; }
+  .art-flower::before {
+    width: 70%; aspect-ratio: 1; left: 15%; top: 15%;
+    background:
+      radial-gradient(circle at 50% 18%, currentColor 18%, transparent 19%),
+      radial-gradient(circle at 82% 50%, currentColor 18%, transparent 19%),
+      radial-gradient(circle at 50% 82%, currentColor 18%, transparent 19%),
+      radial-gradient(circle at 18% 50%, currentColor 18%, transparent 19%);
+  }
+  .art-flower::after { width: 22%; aspect-ratio: 1; left: 39%; top: 39%; border-radius: 50%; background: var(--color-ink); }
+  .art-sketch::before { inset: 16%; border: 3px dashed currentColor; border-radius: 50%; }
+  .art-sketch::after { left: 50%; top: 6%; bottom: 6%; border-left: 3px dashed currentColor; }
+  .art .glyph {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-variation-settings: "wdth" 75, "opsz" 96;
+    font-size: min(30vw, 360px); line-height: 1; letter-spacing: -0.05em;
+  }
+  .art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+  /* Stickers */
+  .sticker {
+    position: absolute; z-index: 5; display: flex; align-items: center; justify-content: center; text-align: center;
+    color: var(--color-ink); font-family: var(--font-hand); font-weight: 700; line-height: 0.9; white-space: pre-line;
+    box-shadow: 0 10px 0 -2px rgba(0, 0, 0, 0.35); transform: rotate(var(--r, 0deg));
+  }
+
+  /* Marquee */
+  .mq-track { display: flex; width: max-content; animation: mq 30s linear infinite; }
+  .mq-track.rev { animation-direction: reverse; animation-duration: 36s; }
+  .mq-track.slow { animation-duration: 38s; }
+
+  /* Scroll reveal: hidden only once JS confirms motion is OK (.js on <html>) */
+  .js .rv { opacity: 0; transform: translateY(56px) rotate(1.5deg); }
+  .mask { position: relative; overflow: hidden; }
+  .mask::after {
+    content: ""; position: absolute; inset: 0; background: var(--color-lime); z-index: 2;
+    transform-origin: right; transform: scaleX(var(--mask, 0));
+  }
+  .js .mask { --mask: 1; }
+  .js .mask.rv { opacity: 1; transform: none; }
+
+  /* Floating decorations */
+  .float { position: absolute; pointer-events: none; z-index: 1; }
+  .float > * { display: block; animation: bob 6s ease-in-out infinite; }
+  .float.spin > * { animation: spin 18s linear infinite; }
+
+  /* Custom cursor */
+  .cursor { position: fixed; left: 0; top: 0; z-index: 120; pointer-events: none; display: none; }
+  .has-cursor .cursor { display: block; }
+  .cursor-dot {
+    width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%; background: var(--color-lime);
+    display: flex; align-items: center; justify-content: center;
+    transition: width 0.4s var(--ease-bounce), height 0.4s var(--ease-bounce), margin 0.4s var(--ease-bounce), background 0.3s;
+  }
+  .cursor-label { color: var(--color-ink); font-family: var(--font-hand); font-weight: 700; font-size: 26px; opacity: 0; transition: opacity 0.2s; }
+  .cursor.is-link .cursor-dot { width: 48px; height: 48px; margin: -24px 0 0 -24px; background: rgba(255, 91, 167, 0.55); }
+  .cursor.is-view .cursor-dot { width: 104px; height: 104px; margin: -52px 0 0 -52px; background: var(--color-lime); }
+  .cursor.is-view .cursor-label { opacity: 1; }
+  .has-cursor, .has-cursor a, .has-cursor button, .has-cursor label { cursor: none; }
+}
+
+/* ───────── Keyframes ───────── */
+@keyframes up { to { transform: none; } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes mq { to { transform: translateX(-50%); } }
+@keyframes bob { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-22px) rotate(12deg); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes fillIn { to { fill: var(--color-ink); } }
+@keyframes ldOut { to { transform: translateY(-100%); visibility: hidden; } }
+@keyframes flyIn {
+  from { opacity: 0; transform: translateY(120px) rotate(calc(var(--r, 0deg) * -2)) scale(0.7); }
+  to { opacity: 1; transform: rotate(var(--r, 0deg)); }
+}
+@keyframes stick {
+  from { opacity: 0; transform: scale(1.6) rotate(var(--r, 0deg)); }
+  to { opacity: 1; transform: scale(1) rotate(var(--r, 0deg)); }
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 767px) {
+  .wrap { padding-inline: 20px; }
+  .sec { padding-block: 84px; }
+  .float { display: none; }
+}
+
+/* ───────── Reduced motion ───────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important; animation-delay: 0s !important;
+    animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; transition-delay: 0s !important;
+  }
+  .mq-track { animation: none !important; }
 }

@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Self-contained Node server in .next/standalone — small Docker image for Coolify.
+  output: "standalone",
+  poweredByHeader: false,
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
@@ -11,6 +13,9 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
+  },
+  experimental: {
+    optimizePackageImports: ["gsap"],
   },
 };
 
